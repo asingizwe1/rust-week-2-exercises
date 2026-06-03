@@ -12,15 +12,18 @@ pub fn to_big_endian(bytes: &[u8]) -> Vec<u8> {
     // TODO: Reverse the byte order of input slice and return as Vec<u8>
     //slices use .iter()[It creates an iterator that goes through each element in the slice,one by one], .rev() for reversing and .cloned() which turns the &[u8] to owned values, then .collect() gathers the values into a Vec<> basically into a type you define for it
     //instead of dereferencing we can use cloned method
-    bytes.iter().rev().cloned().collect::Vec<u8>()
+    bytes.iter().rev().cloned().collect::Vec<u8>()//Collect into a Vec<u8>
 }
 
 pub fn bytes_to_hex(bytes: &[u8]) -> String {
     // TODO: Implement conversion of bytes slice to hex string
+    //encode will convert a byte to 2 hex characters
+encode(bytes)
 }
 
 pub fn hex_to_bytes(hex: &str) -> Result<Vec<u8>, hex::FromHexError> {
     // TODO: Implement conversion of hex string to bytes vector
+    decode(hex)
 }
 
 pub fn swap_endian_u32(num: u32) -> [u8; 4] {
