@@ -10,6 +10,9 @@ pub fn decode_hex(hex_str: &str) -> Result<Vec<u8>, String> {
 
 pub fn to_big_endian(bytes: &[u8]) -> Vec<u8> {
     // TODO: Reverse the byte order of input slice and return as Vec<u8>
+    //slices use .iter()[It creates an iterator that goes through each element in the slice,one by one], .rev() for reversing and .cloned() which turns the &[u8] to owned values, then .collect() gathers the values into a Vec<> basically into a type you define for it
+    //instead of dereferencing we can use cloned method
+    bytes.iter().rev().cloned().collect::Vec<u8>()
 }
 
 pub fn bytes_to_hex(bytes: &[u8]) -> String {
