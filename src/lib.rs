@@ -45,11 +45,22 @@ pub enum ScriptType {
     P2PKH,
     P2WPKH,
     Unknown,
-}
+}//slice patterns
+/*[a, b, c, ..] → matches slices whose first three elements are a, b, c, and ignores the rest.
 
+[x, ..] → matches slices with at least one element, binding the first element to x.
+
+[x, y] → matches slices with exactly two elements.
+
+[] → matches an empty slice.
+
+[first, .., last] → matches slices with at least two elements, binding the first and last. */
 pub fn classify_script(script: &[u8]) -> ScriptType {
     // TODO: Match script pattern and return corresponding ScriptType
-
+match script{[0x76, 0xa9, 0x14, ..]=>ScriptType::P2PKH,
+  [0x00, 0x14, ..]=>ScriptType::P2WPKH,
+_=>ScriptType::Unknown,
+}
 }
 
 // TODO: complete Outpoint tuple struct
