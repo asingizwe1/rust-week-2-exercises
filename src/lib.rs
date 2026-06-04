@@ -36,7 +36,9 @@ pub fn parse_satoshis(input: &str) -> Result<u64, String> {
     // TODO: Parse input string to u64, return error string if invalid
     //we use turbofish ::<> for the inference algorithm to know the type we are parsing to
     //map_err is used to produce our specific Error string
-    input.parse::<u64>().map_err(|e| e.to_string())
+    //uding |_| to ignore the actual error instead of (|e| e.to_string())
+       input.parse::<u64>().map_err(|_| "Invalid satoshi amount".to_string())
+ 
 }
 
 pub enum ScriptType {
@@ -47,7 +49,7 @@ pub enum ScriptType {
 
 pub fn classify_script(script: &[u8]) -> ScriptType {
     // TODO: Match script pattern and return corresponding ScriptType
-    
+
 }
 
 // TODO: complete Outpoint tuple struct
