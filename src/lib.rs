@@ -34,6 +34,7 @@ num.to_le_bytes()
 
 pub fn parse_satoshis(input: &str) -> Result<u64, String> {
     // TODO: Parse input string to u64, return error string if invalid
+    
 }
 
 pub enum ScriptType {
