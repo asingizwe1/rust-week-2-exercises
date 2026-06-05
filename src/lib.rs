@@ -73,7 +73,7 @@ pub struct Outpoint(txid: String, u32);//It serves as an exact "map" to locate t
 
 pub fn read_pushdata(script: &[u8]) -> &[u8] {
     // TODO: Return the pushdata portion of the script slice (assumes pushdata starts at index 2)
-&script(2..)
+&script(2..) 
 }
 
 pub trait Wallet {
