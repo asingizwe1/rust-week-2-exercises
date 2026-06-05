@@ -69,8 +69,8 @@ pub fn classify_script(script: &[u8]) -> ScriptType {
 // TODO: complete Outpoint tuple struct
 //tuple structs dont have field names
 pub struct Outpoint(String, u32); 
-                                  your wallet does not have a single "account balance". Instead,
-                                  your balance is a collection of discrete chunks of Bitcoin that were sent to you. */
+//   your wallet does not have a single "account balance". Instead,
+ //   your balance is a collection of discrete chunks of Bitcoin that were sent to you. */
 
 pub fn read_pushdata(script: &[u8]) -> &[u8] {
     // TODO: Return the pushdata portion of the script slice (assumes pushdata starts at index 2)
