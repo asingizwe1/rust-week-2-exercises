@@ -87,11 +87,13 @@ pub struct TestWallet {
 impl Wallet for TestWallet {
     fn balance(&self) -> u64 {
         // TODO: Return the wallet's confirmed balance
+        self.confirmed
     }
 }
 
 pub fn apply_fee(balance: &mut u64, fee: u64) {
     // TODO: Subtract fee from mutable balance reference
+    
 }
 
 pub fn move_txid(txid: String) -> String {
