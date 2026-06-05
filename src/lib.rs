@@ -68,8 +68,9 @@ pub fn classify_script(script: &[u8]) -> ScriptType {
 
 // TODO: complete Outpoint tuple struct
 //tuple structs dont have field names
+//fields in public struct must still be public
 #[allow(dead_code)]
-pub struct Outpoint(String, u32);
+pub struct Outpoint(pub String, pub u32);
 
 pub fn read_pushdata(script: &[u8]) -> &[u8] {
     // TODO: Return the pushdata portion of the script slice (assumes pushdata starts at index 2)
