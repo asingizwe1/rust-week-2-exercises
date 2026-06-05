@@ -89,7 +89,7 @@ impl Wallet for TestWallet {
         // TODO: Return the wallet's confirmed balance
         self.confirmed
     }//automatic dereferencing of self(&self)
-
+}
 //balance isnt owned hence it must be dereferenced
 pub fn apply_fee(balance: &mut u64, fee: u64) {
     // TODO: Subtract fee from mutable balance reference
