@@ -85,15 +85,15 @@ pub struct TestWallet {
 }
 
 impl Wallet for TestWallet {
-    fn balance(&self) -> u64 {
+    fn balance(&self) -> u64 {//&self is shorthand for self: &TestWallet
         // TODO: Return the wallet's confirmed balance
         self.confirmed
-    }
-}
-
+    }//automatic dereferencing of self(&self)
+     
+//balance isnt owned hence it must be dereferenced
 pub fn apply_fee(balance: &mut u64, fee: u64) {
     // TODO: Subtract fee from mutable balance reference
-    
+
 }
 
 pub fn move_txid(txid: String) -> String {
