@@ -98,10 +98,11 @@ pub fn apply_fee(balance: &mut u64, fee: u64) {
 
 pub fn move_txid(txid: String) -> String {
     // TODO: Return formatted string including the txid for display or logging
-    
-}
+    format!("txid: {}",txid)
+}//format always returns a formatted string
 
 // TODO: Add necessary derive traits
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Opcode {
     OpChecksig,
     OpDup,
@@ -111,10 +112,17 @@ pub enum Opcode {
 impl Opcode {
     pub fn from_byte(byte: u8) -> Result<Self, String> {
         // TODO: Implement mapping from byte to Opcode variant
+ match byte {
+            0xac => Ok(Opcode::OpChecksig),
+            0x76 => Ok(Opcode::OpDup),
+            _ => Err(format!("Invalid opcode: 0x{:02x}", byte)),
+        }
+
     }
 }
 
 // TODO: Add necessary derive traits
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct UTXO {
     pub txid: Vec<u8>,
     pub vout: u32,
@@ -123,4 +131,5 @@ pub struct UTXO {
 
 pub fn consume_utxo(utxo: UTXO) -> UTXO {
     // TODO: Implement UTXO consumption logic (if any)
+      utxo
 }
