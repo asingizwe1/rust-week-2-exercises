@@ -64,10 +64,16 @@ _=>ScriptType::Unknown,
 }
 
 // TODO: complete Outpoint tuple struct
-pub struct Outpoint();
+pub struct Outpoint(txid: String, u32);//It serves as an exact "map" to locate the source funds you are attempting to spend
+//in btc every transaction input points to a previous output - pointer has 2 pieces of info which are txid(String)
+//and vout(output index)(u32)-[because you can have multiple transactions] - output index in that transaction
+/*Because Bitcoin uses the UTXO (Unspent Transaction Output) model,
+ your wallet does not have a single "account balance". Instead, 
+ your balance is a collection of discrete chunks of Bitcoin that were sent to you. */
 
 pub fn read_pushdata(script: &[u8]) -> &[u8] {
     // TODO: Return the pushdata portion of the script slice (assumes pushdata starts at index 2)
+&script(2..)
 }
 
 pub trait Wallet {
