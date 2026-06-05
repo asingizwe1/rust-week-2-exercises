@@ -46,6 +46,7 @@ pub enum ScriptType {
     P2WPKH,
     Unknown,
 } //slice patterns
+
   /*[a, b, c, ..] → matches slices whose first three elements are a, b, c, and ignores the rest.
 
   [x, ..] → matches slices with at least one element, binding the first element to x.
@@ -55,6 +56,7 @@ pub enum ScriptType {
   [] → matches an empty slice.
 
   [first, .., last] → matches slices with at least two elements, binding the first and last. */
+  
 pub fn classify_script(script: &[u8]) -> ScriptType {
     // TODO: Match script pattern and return corresponding ScriptType
     match script {
@@ -66,10 +68,7 @@ pub fn classify_script(script: &[u8]) -> ScriptType {
 
 // TODO: complete Outpoint tuple struct
 //tuple structs dont have field names
-pub struct Outpoint(String, u32); //It serves as an exact "map" to locate the source funds you are attempting to spend
-                                  //in btc every transaction input points to a previous output - pointer has 2 pieces of info which are txid(String)
-                                  //and vout(output index)(u32)-[because you can have multiple transactions] - output index in that transaction
-                                  /*Because Bitcoin uses the UTXO (Unspent Transaction Output) model,
+pub struct Outpoint(String, u32); 
                                   your wallet does not have a single "account balance". Instead,
                                   your balance is a collection of discrete chunks of Bitcoin that were sent to you. */
 
@@ -136,3 +135,7 @@ pub fn consume_utxo(utxo: UTXO) -> UTXO {
     // TODO: Implement UTXO consumption logic (if any)
     utxo
 }
+
+
+//It serves as an exact "map" to locate the source funds you are attempting to spend
+//in btc every transaction input points to a previous output - pointer has 2 pieces of info which are txid(String) and vout(output index)(u32)-[because you can have multiple transactions] - output index in that transaction *Because Bitcoin uses the UTXO (Unspent Transaction Output) model,
